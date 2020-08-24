@@ -1,0 +1,69 @@
+<html>
+<head>
+
+    <title>hn13</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            width: 50vh;
+            height: 25vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #33495e;
+        }
+        a{
+            font-size: 4em;
+            font-weight: bold;
+            color: blueviolet;
+        }
+        a>span{
+            position: relative;
+            display: inline-block;
+        }
+        .color{
+            animation-name: color;
+            animation-duration: 1s;
+            animation-iteration-count: 2;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+        }
+        @keyframes color{
+            50%{
+                color:gold;
+                transform: scale(2);
+            }
+            to{
+                color: hotpink;
+                transfrom: scale(.5);
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <a href="mailto:root@hn13.top">Hn13 Web</a>
+    <script>
+        
+        const div = document.querySelector("a");
+        [...div.textContent].reduce(function(pre, cur, index){
+            pre == index && (div.innerHTML= "");
+            let span = document.createElement('span');
+            span.innerHTML = cur;
+            div.appendChild(span);
+            span.addEventListener('mouseover', function(){
+                this.classList.add("color");
+            });
+            span.addEventListener('animationend',function(){
+            this.classList.remove("color");
+            });
+        }, 0);
+        
+    </script>
+</body>
+</html>
